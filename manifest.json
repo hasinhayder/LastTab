@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "LastTab",
+  "description": "Switch To Last Used Tab By Simply Pressing Alt + Z",
+  "version": "1.0",
+  "homepage_url": "http://hasin.me",
+  "icons":{
+  	"16":"16.png",
+  	"48":"48.png",
+  	"128":"48.png"
+  },
+ 
+  "background": {
+    "scripts": [
+      "js/lasttab.js"
+    ],
+    "persistent": true
+  },
+  "permissions": [
+    "tabs"
+  ],
+  "commands": {
+      "switch" : {
+          "suggested_key": {
+               "default": "Alt+Z",
+               "mac":"Alt+Z"
+          },
+          "description": "Switch To Last Used Tab By Simply Pressing Alt + Z"
+      }
+  }
+}
