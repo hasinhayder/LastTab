@@ -2,7 +2,7 @@
  * @author: Hasin Hayder [hasin_at_leevio_dot_com | http://hasin.me]
  * @license: MIT
  */
-var currentTab=0, oldTab=1, tabRemoved=false, oldWindow = 0, currentWindow = 0, singleTab = true;
+var currentTab=-1, oldTab=-1, tabRemoved=false, oldWindow = 0, currentWindow = 0, singleTab = true;
 
 chrome.tabs.onActivated.addListener(function(activeInfo) {
 	if(!tabRemoved){
@@ -45,7 +45,8 @@ chrome.commands.onCommand.addListener(function (command) {
 			currentWindow = tmp;
 		}
 
-    	chrome.tabs.update(oldTab,{selected:true}); //switch tab
+		if(oldTab!=-1) //at least two tabs didn't get focus yet, no way to switch then
+    		chrome.tabs.update(oldTab,{selected:true}); //switch tab
     }
 });
 
