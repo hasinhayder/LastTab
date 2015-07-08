@@ -6,7 +6,7 @@ var currentTab=0, oldTab=1, tabRemoved=false;
 chrome.tabs.onActivated.addListener(function(activeInfo) {
 	if(!tabRemoved){
 	//plain switch
-		if(oldTab!=activeInfo.currentTab){
+		if(oldTab!=activeInfo.tabId){
 			oldTab = currentTab;
 			currentTab = activeInfo.tabId;
 		}
